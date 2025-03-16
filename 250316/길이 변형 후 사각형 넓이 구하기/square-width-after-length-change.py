@@ -9,4 +9,4 @@ h*=3
 
 print(w)
 print(h)
-print(w+h)
+print(w*h)
