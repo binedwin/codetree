@@ -10,4 +10,6 @@ b_eng=(arr[1])
 
 if (a_math>=19 or b_math>=19) and (a_eng=='M' or b_eng=='M'):
     print(1)
+else:
+    print(0)
     
