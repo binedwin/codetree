@@ -1,17 +1,12 @@
-arr=list(map(int, input().split()))
-sum=0
+arr = list(map(int, input().split()))  # A B
+A, B = arr[0], arr[1]
 
-count=[0]*100
+count = [0] * 100  # 나머지 범위에 맞게 설정
+while A >1:
+    remainder = A % B
+    count[remainder] += 1
+    A //= B
 
-for i in range(1000):
-    count[arr[0] % arr[1]]+=1
-    arr[0]//=arr[1]
-
-    if arr[0]<1:
-        break
-
-for i in range(0,100):
-    count[i]**=2
-    sum+=count[i]
-
-print(sum)
+# 제곱합 계산
+total = sum(c ** 2 for c in count)
+print(total)
