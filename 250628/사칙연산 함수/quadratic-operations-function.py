@@ -14,4 +14,4 @@ def sachic(a,o,c):
     else:
         return False
 
-print(a, o, c, "=",sachic(a,o,c))
+print(f"{a} {o} {c} = {sachic(a,o,c)}")
