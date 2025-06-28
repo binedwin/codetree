@@ -1,16 +1,15 @@
-n, m = map(int, input().split())
-k= n*m
+# 변수 선언 및 입력:
+n, m = tuple(map(int, input().split()))
 
-def max_1():
-    if n>m:
-        k=n
-    else:
-        k=m
-    ans=0
-    for i in range(1, k):
-        if n%i==0 and m%i==0:
-            ans=i
-    
-    print(ans)
 
-max_1()
+# n과 m의 최대공약수를 반환합니다.
+def find_gcd(n, m):
+    gcd = 0
+    for i in range(1, min(n, m) + 1):
+        if n % i == 0 and m % i == 0:
+            gcd = i
+
+    print(gcd)
+
+
+find_gcd(n, m)
