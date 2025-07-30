@@ -4,5 +4,5 @@ nums = list(map(int, input().split()))
 nums.sort()
 
 for i in range(n):
-    if i == k:
-        print(nums[i+1])
+    if i+1 == k:
+        print(nums[i])
