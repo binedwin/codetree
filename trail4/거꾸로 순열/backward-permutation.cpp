@@ -1,19 +1,17 @@
 #include <iostream>
-#include <cstring>
 
 using namespace std;
 
 int n;
 int arr[10];
-bool visited[10];
+bool visited[10]={false};
 
 void input(){
     cin>>n;
-    memset(visited,0, sizeof(visited));
 }
 
-void dfs(int lev){
-    if(lev == n){
+void solve(int lev){
+    if(lev==n){
         for(int i=0; i<n; i++){
             cout<<arr[i]<<" ";
         }
@@ -21,21 +19,19 @@ void dfs(int lev){
         return;
     }
 
-    for(int i=n; i>0; i--){
+    for(int i=n; i>=1; i--){
         if(visited[i])continue;
-
-        visited[i]=true;
         arr[lev]=i;
-        dfs(lev+1);
-        arr[lev]=0;
+        visited[i]=true;
+        solve(lev+1);
         visited[i]=false;
-
+        arr[lev]=0;
     }
 }
 
 int main() {
     input();
-    dfs(0);
+    solve(0);
 
     return 0;
 }
