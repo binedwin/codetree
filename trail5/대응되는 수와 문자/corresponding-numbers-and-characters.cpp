@@ -1,33 +1,46 @@
 #include <iostream>
-#include <vector>
-#include <unordered_map>
 #include <string>
+#include <unordered_map>
+
 using namespace std;
 
+int n, m;
+string words[100001];
+string queries[100000];
+
 int main() {
-    int N, M;
-    cin >> N >> M;
 
-    vector<string> arr(N + 1);
-    unordered_map<string, int> mp;
+    cin >> n >> m;
 
-    for (int i = 1; i <= N; i++) {
-        cin >> arr[i];
-        mp[arr[i]] = i;
+    unordered_map<string, int> um;
+
+    for (int i = 1; i <= n; i++) {
+        cin >> words[i];
+
+        // 문자열 → 번호
+        um[words[i]] = i;
     }
 
-    for (int i = 0; i < M; i++) {
-        string query;
-        cin >> query;
+    for (int i = 0; i < m; i++) {
+        cin >> queries[i];
+    }
 
-        // 숫자인 경우
-        if (query[0] >= '0' && query[0] <= '9') {
-            int num = stoi(query);
-            cout << arr[num] << '\n';
+    for (int i = 0; i < m; i++) {
+
+        string q = queries[i];
+
+        // 첫 글자가 숫자라면
+        if (q[0] >= '0' && q[0] <= '9') {
+
+            int num = stoi(q);
+
+            // 번호 → 문자열
+            cout << words[num] << "\n";
         }
-        // 문자열인 경우
         else {
-            cout << mp[query] << '\n';
+
+            // 문자열 → 번호
+            cout << um[q] << "\n";
         }
     }
 
